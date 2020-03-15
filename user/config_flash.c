@@ -123,7 +123,7 @@ uint32_t reg0, reg1, reg3;
 #endif
 
 #if MQTT_CLIENT
-    os_sprintf(config->mqtt_host,"%s", "none");
+    os_sprintf(config->mqtt_host,"%s", "192.168.178.201");
     config->mqtt_port			= 1883;
     os_sprintf(config->mqtt_user,"%s", "none");
     config->mqtt_password[0]		= 0;

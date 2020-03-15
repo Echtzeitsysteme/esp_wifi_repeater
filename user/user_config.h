@@ -1,13 +1,13 @@
 #ifndef _USER_CONFIG_
 #define _USER_CONFIG_
 
-#define		ESP_REPEATER_VERSION "V2.2.14"
+#define		ESP_REPEATER_VERSION "V2.2.14-TUD_CPPP"
 
 #define		LOCAL_ACCESS 0x01
 #define		REMOTE_ACCESS 0x02
 
-#define		WIFI_SSID "ssid"
-#define		WIFI_PASSWORD "password"
+#define		WIFI_SSID "MindFi"
+#define		WIFI_PASSWORD "MindFiSecure"
 
 #define		WIFI_AP_SSID "MyAP"
 #define		WIFI_AP_PASSWORD "none"
