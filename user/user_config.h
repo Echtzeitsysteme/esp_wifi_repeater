@@ -6,6 +6,9 @@
 #define		LOCAL_ACCESS 0x01
 #define		REMOTE_ACCESS 0x02
 
+#define		ENABLE_AUTOMESH 1
+#define		MQTT_BROKER_IP "192.168.178.201"
+
 #define		WIFI_SSID "MindFi"
 #define		WIFI_PASSWORD "MindFiSecure"
 

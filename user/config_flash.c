@@ -78,7 +78,7 @@ uint32_t reg0, reg1, reg3;
     config->ap_watchdog			= -1;
     config->client_watchdog		= -1;
 
-    config->automesh_mode		= 0;
+    config->automesh_mode		= ENABLE_AUTOMESH;
     config->automesh_checked		= 0;
     config->automesh_tries		= 0;
     config->automesh_threshold		= 85;
@@ -123,7 +123,7 @@ uint32_t reg0, reg1, reg3;
 #endif
 
 #if MQTT_CLIENT
-    os_sprintf(config->mqtt_host,"%s", "192.168.178.201");
+    os_sprintf(config->mqtt_host,"%s", MQTT_BROKER_IP);
     config->mqtt_port			= 1883;
     os_sprintf(config->mqtt_user,"%s", "none");
     config->mqtt_password[0]		= 0;
@@ -141,7 +141,7 @@ uint32_t reg0, reg1, reg3;
     mac[0] ^= 0x04;
     os_memcpy(config->ETH_MAC_address, mac, 6);
 #if DCHPSERVER_ENC28J60
-    IP4_ADDR(&config->eth_addr, 192, 168, 5, 1);
+
     IP4_ADDR(&config->eth_netmask, 255, 255, 255, 0);
     config->eth_gw.addr			= 0;  // Just use ARP
     config->eth_enable			= 0;  // 0 = off
