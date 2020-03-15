@@ -158,11 +158,11 @@ $(BUILD_DIR):
 $(FW_BASE):
 	$(Q) mkdir -p $@
 
-flash: $(FW_BASE)/sha1sums
-	$(ESPTOOL) --port $(ESPPORT) --baud $(ESPTOOLBAUD) write_flash $(ESPTOOLOPTS) 0x00000 $(RBOOT_FILE) $(FW_FILE_1_ADDR) $(FW_FILE_1)
-
 erase_flash:
 	$(ESPTOOL) --port $(ESPPORT) erase_flash
+
+flash: $(FW_BASE)/sha1sums
+	$(ESPTOOL) --port $(ESPPORT) --baud $(ESPTOOLBAUD) write_flash $(ESPTOOLOPTS) 0x00000 $(RBOOT_FILE) $(FW_FILE_1_ADDR) $(FW_FILE_1)
 
 flash1: $(FW_BASE)/sha1sums
 	$(ESPTOOL) --port $(ESPPORT) --baud $(ESPTOOLBAUD) write_flash $(ESPTOOLOPTS) 0x00000 $(RBOOT_FILE) $(FW_FILE_2_ADDR) $(FW_FILE_2)

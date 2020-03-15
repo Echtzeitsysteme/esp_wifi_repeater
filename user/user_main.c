@@ -1152,7 +1152,7 @@ void ICACHE_FLASH_ATTR console_handle_command(struct espconn *pespconn)
     if (strcmp(tokens[0], "mqtt_pub") == 0)
     {
     	if(nTokens=3){
-			os_sprintf(response, "Sending MQTT-message on %s", tokens[1]);
+			os_sprintf(response, "Sending MQTT-message on %s\r\n", tokens[1]);
 			to_console(response);
 
 			MQTT_Publish(&mqttClient, tokens[1], tokens[2], os_strlen(tokens[2]), config.mqtt_qos, 0);
