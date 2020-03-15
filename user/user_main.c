@@ -1159,6 +1159,16 @@ void ICACHE_FLASH_ATTR console_handle_command(struct espconn *pespconn)
 			goto command_handled;
     	}
     }
+    if (strcmp(tokens[0], "mqtt_wsn") == 0)
+    {
+    	if(nTokens=2){
+			os_sprintf(response, "Sending MQTT-message on %s\r\n", config.mqtt_wsn_topic);
+			to_console(response);
+
+			MQTT_Publish(&mqttClient, config.mqtt_wsn_topic, tokens[1], os_strlen(tokens[1]), config.mqtt_qos, 0);
+			goto command_handled;
+    	}
+    }
     // MQTT PUB END
 
     if (strcmp(tokens[0], "help") == 0)

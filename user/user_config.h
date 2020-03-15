@@ -8,6 +8,11 @@
 
 #define		ENABLE_AUTOMESH 1
 #define		MQTT_BROKER_IP "192.168.178.201"
+#define 	MQTT_WSN_TOPIC "wsn"
+
+// results in config->mqtt_wsn_topic=MQTT_PREFIX / config->mqtt_id / MQTT_WSN_TOPIC
+// where config->mqtt_id is "%s_%02x%02x%02x", MQTT_ID, mac[3], mac[4], mac[5] ( e.g. MQTT_ID_1a2b3d)
+
 
 #define		WIFI_SSID "MindFi"
 #define		WIFI_PASSWORD "MindFiSecure"
@@ -126,7 +131,7 @@
 //#define           PROTOCOL_NAMEv311 /*MQTT version 3.11 compatible with https://eclipse.org/paho/clients/testing/*/
 
 #define		MQTT_PREFIX "/WiFi"
-#define		MQTT_ID "ESPRouter"
+#define		MQTT_ID "ESP"
 #define		MQTT_REPORT_INTERVAL 15 /*seconds*/
 
 // Define this if you want to get messages about GPIO pin status changes

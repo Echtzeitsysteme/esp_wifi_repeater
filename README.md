@@ -2,12 +2,21 @@
 
 Modify these defines in user_config.h
 
-'''
+```
 #define		MQTT_BROKER_IP "192.168.XXX.YYY"
 
 #define		WIFI_SSID "ssid"
 #define		WIFI_PASSWORD "password"
-'''
+```
+
+Adapt serial-port in Makefile (standard is `/dev/ttyUSB0`).
+
+erase flash with: `make erase_flash`
+build with: `make all`
+flash with: `make flashboth`
+
+all three targets get executed with `make eaf` (erase, all, flash)
+
 
 # esp_wifi_repeater
 A full functional WiFi repeater (correctly: a WiFi NAT router)

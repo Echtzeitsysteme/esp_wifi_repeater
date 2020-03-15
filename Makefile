@@ -158,6 +158,8 @@ $(BUILD_DIR):
 $(FW_BASE):
 	$(Q) mkdir -p $@
 
+ef: erase_flash flashboth
+
 erase_flash:
 	$(ESPTOOL) --port $(ESPPORT) erase_flash
 

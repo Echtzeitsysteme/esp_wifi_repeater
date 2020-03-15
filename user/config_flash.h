@@ -116,6 +116,7 @@ typedef struct {
         uint8_t mqtt_password[32]; // Password for broker login
         uint8_t mqtt_id[32]; // MQTT clientId
         uint8_t mqtt_prefix[64]; // Topic-prefix
+        uint8_t mqtt_wsn_topic[64]; // Topic-prefix
         uint8_t mqtt_command_topic[64]; // Topic on which commands are received, "none" if not subscibed
         uint8_t mqtt_gpio_out_topic[64]; // Topic on which the status of the gpio_out pin can be set
         uint8_t mqtt_qos;

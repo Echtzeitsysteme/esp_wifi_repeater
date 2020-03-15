@@ -129,6 +129,7 @@ uint32_t reg0, reg1, reg3;
     config->mqtt_password[0]		= 0;
     os_sprintf(config->mqtt_id,"%s_%02x%02x%02x", MQTT_ID, mac[3], mac[4], mac[5]);
     os_sprintf(config->mqtt_prefix,"%s/%s/system", MQTT_PREFIX, config->mqtt_id);
+    os_sprintf(config->mqtt_wsn_topic,"%s/%s/%s", MQTT_PREFIX, config->mqtt_id, MQTT_WSN_TOPIC);
     os_sprintf(config->mqtt_command_topic,"%s/%s/%s", MQTT_PREFIX, config->mqtt_id, "command");
     os_sprintf(config->mqtt_gpio_out_topic,"%s/%s/%s", MQTT_PREFIX, config->mqtt_id, "switch");
     config->mqtt_qos            = 0;
