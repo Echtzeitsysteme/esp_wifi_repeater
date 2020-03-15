@@ -1148,6 +1148,19 @@ void ICACHE_FLASH_ATTR console_handle_command(struct espconn *pespconn)
         goto command_handled_2;
     }
 
+    // MQTT PUB START
+    if (strcmp(tokens[0], "mqtt_pub") == 0)
+    {
+    	if(nTokens=3){
+			os_sprintf(response, "Sending MQTT-message on %s", tokens[1]);
+			to_console(response);
+
+			MQTT_Publish(&mqttClient, tokens[1], tokens[2], os_strlen(tokens[2]), config.mqtt_qos, 0);
+			goto command_handled;
+    	}
+    }
+    // MQTT PUB END
+
     if (strcmp(tokens[0], "help") == 0)
     {
         os_sprintf(response, "show [config|stats|route|dhcp%s]\r\n",
