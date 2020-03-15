@@ -1,3 +1,14 @@
+# Info for CPPP
+
+Modify these defines in user_config.h
+
+'''
+#define		MQTT_BROKER_IP "192.168.XXX.YYY"
+
+#define		WIFI_SSID "ssid"
+#define		WIFI_PASSWORD "password"
+'''
+
 # esp_wifi_repeater
 A full functional WiFi repeater (correctly: a WiFi NAT router)
 
