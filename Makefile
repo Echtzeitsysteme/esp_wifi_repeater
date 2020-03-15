@@ -120,6 +120,8 @@ endef
 #all: checkdirs $(TARGET_OUT) $(FW_FILE_1) $(FW_FILE_2)
 all: checkdirs $(FW_FILE_1) $(FW_FILE_2) $(RBOOT_FILE) $(FW_BASE)/sha1sums
 
+eaf: erase_flash all flashboth
+
 #$(FW_BASE)/%.bin: $(TARGET_OUT) | $(FW_BASE)
 #	$(vecho) "FW" $@
 #	$(Q) $(ESPTOOL) elf2image --version=2 $(TARGET_OUT) -o $@
