@@ -29,7 +29,7 @@ SDK_BASE	?= $(BUILD_AREA)/esp-open-sdk/sdk
 # # esptool.py path and port
 ESPTOOL		?= $(XTENSA_TOOLS_ROOT)/esptool.py
 ESPPORT		?= /dev/ttyUSB0
-ESPTOOLBAUD	?= 115200
+ESPTOOLBAUD	?= 230400
 ESPTOOLOPTS	= -ff 40m -fm dio -fs 32m
 
 # name for the target project
@@ -158,6 +158,9 @@ $(FW_BASE):
 
 flash: $(FW_BASE)/sha1sums
 	$(ESPTOOL) --port $(ESPPORT) --baud $(ESPTOOLBAUD) write_flash $(ESPTOOLOPTS) 0x00000 $(RBOOT_FILE) $(FW_FILE_1_ADDR) $(FW_FILE_1)
+
+erase_flash:
+	$(ESPTOOL) --port $(ESPPORT) erase_flash
 
 flash1: $(FW_BASE)/sha1sums
 	$(ESPTOOL) --port $(ESPPORT) --baud $(ESPTOOLBAUD) write_flash $(ESPTOOLOPTS) 0x00000 $(RBOOT_FILE) $(FW_FILE_2_ADDR) $(FW_FILE_2)
