@@ -1,22 +1,59 @@
-# Info for CPPP
 
-Modify these defines in user_config.h
+# Infos for use in CPPP
+## Adapt user_config.h
+Change these Macro Definitions to fit your environment
 
 ```
 #define		MQTT_BROKER_IP "192.168.XXX.YYY"
-
 #define		WIFI_SSID "ssid"
 #define		WIFI_PASSWORD "password"
 ```
+## Flashing the firmware
 
-Adapt serial-port in Makefile (standard is `/dev/ttyUSB0`).
+If necessary, adapt the serial-port definition in the Makefile (standard is `/dev/ttyUSB0`).
 
-erase flash with: `make erase_flash`
-build with: `make all`
-flash with: `make flashboth`
+- Erase flash with: `make erase_flash`
+- Build with: `make all`
+- Flash with: `make flashboth`
 
-all three targets get executed with `make eaf` (erase, all, flash)
+Or use combinations of them:
+- `make ef` (erase + flashboth)
+- `make eaf` (erase + all + flashboth)
 
+Make sure to always erase_flash, before flashing new Firmware
+
+## Changelog compared to original 
+
+Compared to the original esp_wifi_repeater firmware, these changes have been made:
+
+### Makefile
+- increased baudrate for faster flashing
+- added target erase_flash, for convenient erasing
+- added combined targets ef (erase + flashboth) and eaf (erase + all + flashboth)
+
+### user/user_config.h
+- Appended "-TUD_CPPP" to ESP_REPEATER_VERSION
+- Added Macros:
+	- ENABLE_AUTOMESH 
+	- MQTT_BROKER_IP 
+	- MQTT_WSN_TOPIC
+- Changed Value of Macro MQTT_ID from "ESPRouter" to "ESP" (that lets the MQTT-Subtopic corresponding to a device be the same as the devices' id published under the Topology-Topic)
+
+### user/config_flash.h
+- added `uint8_t mqtt_wsn_topic[64]` as field of sysconfig-structure
+
+### user/config_flash.c
+- `config->automesh_mode` defaults to macro `ENABLE_AUTOMESH`
+- `config->mqtt_host` defaults to macro `MQTT_BROKER_IP`
+- `config->mqtt_wsn_topic` defaults to MQTT_PREFIX + "/" + config->mqtt_id + "/" + MQTT_WSN_TOPIC
+	(which is `/WiFi/ESP_xxxxxx/wsn`, where xxxxxx is derived from the last 6 octets of the devices' station-interface MAC-address)
+### user/user_main.c
+- added command `mqtt_pub <topic> <message>`
+	- publishes the messsage onto the mqtt-topic
+- added command `mqtt_wsn <message>`
+	- publishes the messsage onto the topic defined in `config->mqtt_wsn_topic`
+
+--- BEGIN OF ORIGINAL README ---
 
 # esp_wifi_repeater
 A full functional WiFi repeater (correctly: a WiFi NAT router)
