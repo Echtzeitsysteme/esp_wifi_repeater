@@ -132,7 +132,7 @@
 
 #define		MQTT_PREFIX "/WiFi"
 #define		MQTT_ID "ESP"
-#define		MQTT_REPORT_INTERVAL 15 /*seconds*/
+#define		MQTT_REPORT_INTERVAL 5 /*seconds*/
 
 // Define this if you want to get messages about GPIO pin status changes
 //               #define USER_GPIO_IN 0

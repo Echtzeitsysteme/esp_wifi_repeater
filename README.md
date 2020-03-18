@@ -38,6 +38,7 @@ Compared to the original esp_wifi_repeater firmware, these changes have been mad
 	- MQTT_BROKER_IP 
 	- MQTT_WSN_TOPIC
 - Changed Value of Macro MQTT_ID from "ESPRouter" to "ESP" (that lets the MQTT-Subtopic corresponding to a device be the same as the devices' id published under the Topology-Topic)
+- Changed Value of Macro MQTT_REPORT_INTERVAL to 5 (Seconds)
 
 ### user/config_flash.h
 - added `uint8_t mqtt_wsn_topic[64]` as field of sysconfig-structure
