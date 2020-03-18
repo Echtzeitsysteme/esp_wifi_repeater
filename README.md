@@ -32,13 +32,13 @@ Compared to the original esp_wifi_repeater firmware, these changes have been mad
 - added combined targets ef (erase + flashboth) and eaf (erase + all + flashboth)
 
 ### user/user_config.h
-- Appended "-TUD_CPPP" to ESP_REPEATER_VERSION
+- Appended "-TUD_CPPP" to `ESP_REPEATER_VERSION`
 - Added Macros:
-	- ENABLE_AUTOMESH 
-	- MQTT_BROKER_IP 
-	- MQTT_WSN_TOPIC
-- Changed Value of Macro MQTT_ID from "ESPRouter" to "ESP" (that lets the MQTT-Subtopic corresponding to a device be the same as the devices' id published under the Topology-Topic)
-- Changed Value of Macro MQTT_REPORT_INTERVAL to 5 (Seconds)
+	- `ENABLE_AUTOMESH` 
+	- `MQTT_BROKER_IP` 
+	- `MQTT_WSN_TOPIC`
+- Changed Value of Macro `MQTT_ID` from "ESPRouter" to "ESP" (that lets the MQTT-Subtopic corresponding to a device be the same as the devices' id published under the Topology-Topic)
+- Changed Value of Macro `MQTT_REPORT_INTERVAL` to 5 (Seconds)
 
 ### user/config_flash.h
 - added `uint8_t mqtt_wsn_topic[64]` as field of sysconfig-structure
@@ -46,7 +46,7 @@ Compared to the original esp_wifi_repeater firmware, these changes have been mad
 ### user/config_flash.c
 - `config->automesh_mode` defaults to macro `ENABLE_AUTOMESH`
 - `config->mqtt_host` defaults to macro `MQTT_BROKER_IP`
-- `config->mqtt_wsn_topic` defaults to MQTT_PREFIX + "/" + config->mqtt_id + "/" + MQTT_WSN_TOPIC
+- `config->mqtt_wsn_topic` defaults to `MQTT_PREFIX + "/" + config->mqtt_id + "/" + MQTT_WSN_TOPIC`
 	(which is `/WiFi/ESP_xxxxxx/wsn`, where xxxxxx is derived from the last 6 octets of the devices' station-interface MAC-address)
 ### user/user_main.c
 - added command `mqtt_pub <topic> <message>`
