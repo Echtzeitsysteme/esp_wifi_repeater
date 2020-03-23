@@ -1,5 +1,8 @@
 
 # Infos for use in CPPP
+
+See [Building and Flashing](#building-and-flashing) for instructions on how to setup the building environment.
+
 ## Adapt user_config.h
 Change these Macro Definitions to fit your environment
 
