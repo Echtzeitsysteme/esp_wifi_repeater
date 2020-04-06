@@ -4189,8 +4189,8 @@ void ICACHE_FLASH_ATTR automesh_scan_done(void *arg, STATUS status)
                 os_printf(", mesh level: %d\r\n", this_mesh_level);
 
                 // Lower mesh level or same but better RSSI
-                if (this_mesh_level < mesh_level ||
-                    (this_mesh_level == mesh_level && bss_link->rssi > rssi))
+                if (/*this_mesh_level < mesh_level ||
+                    (this_mesh_level == mesh_level && */bss_link->rssi > rssi)//)
                 {
                     rssi = bss_link->rssi;
                     mesh_level = this_mesh_level;
