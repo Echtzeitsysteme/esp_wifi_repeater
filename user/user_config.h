@@ -7,15 +7,15 @@
 #define		REMOTE_ACCESS 0x02
 
 #define		ENABLE_AUTOMESH 1
-#define		MQTT_BROKER_IP "192.168.178.201"
+#define		MQTT_BROKER_IP "192.168.0.1"
 #define 	MQTT_WSN_TOPIC "wsn"
 
 // results in config->mqtt_wsn_topic=MQTT_PREFIX / config->mqtt_id / MQTT_WSN_TOPIC
 // where config->mqtt_id is "%s_%02x%02x%02x", MQTT_ID, mac[3], mac[4], mac[5] ( e.g. MQTT_ID_1a2b3d)
 
 
-#define		WIFI_SSID "MindFi"
-#define		WIFI_PASSWORD "MindFiSecure"
+#define		WIFI_SSID "MyAP"
+#define		WIFI_PASSWORD "MyApPassword"
 
 #define		WIFI_AP_SSID "MyAP"
 #define		WIFI_AP_PASSWORD "none"
