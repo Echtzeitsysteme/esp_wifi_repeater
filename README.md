@@ -1,7 +1,27 @@
 
 # Infos for use in CPPP
 
+## Buil-Environment
 See [Building and Flashing](#building-and-flashing) for instructions on how to setup the building environment.
+
+Short Version for Debian/Ubuntu after 14.04:
+- Install Requirements 
+```
+$ sudo apt-get install make unrar-free autoconf automake libtool gcc g++ gperf \
+    flex bison texinfo gawk ncurses-dev libexpat-dev python-dev python python-serial \
+    sed git unzip bash help2man wget bzip2 libtool-bin
+```
+
+- Be sure to clone recursively: `$ git clone --recursive https://github.com/pfalcon/esp-open-sdk.git`
+
+- make open-sdk (can take > 15 mins):`$ cd esp-open-sdk && make`
+
+- add to Path `STUB`
+
+- Go to esp_wifi_repeater and use `make all`
+
+- connect ESP and use `make ef`to erase flash and flash binaries
+
 
 ## Adapt user_config.h
 Change these Macro Definitions to fit your environment
