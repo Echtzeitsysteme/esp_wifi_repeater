@@ -50,7 +50,8 @@ Make sure to always erase_flash, before flashing new Firmware
 Compared to the original esp_wifi_repeater firmware, these changes have been made:
 
 ### Makefile
-- increased baudrate for faster flashing
+- increased baudrate for faster flashing to 921600 default is 115200
+- Changed Flashmode for esptool to qio
 - added target erase_flash, for convenient erasing
 - added combined targets ef (erase + flashboth) and eaf (erase + all + flashboth)
 
@@ -71,11 +72,16 @@ Compared to the original esp_wifi_repeater firmware, these changes have been mad
 - `config->mqtt_host` defaults to macro `MQTT_BROKER_IP`
 - `config->mqtt_wsn_topic` defaults to `MQTT_PREFIX + "/" + config->mqtt_id + "/" + MQTT_WSN_TOPIC`
 	(which is `/WiFi/ESP_xxxxxx/wsn`, where xxxxxx is derived from the last 6 octets of the devices' station-interface MAC-address)
+- `config->automesh_threshold` defaults to 65 (negative dbi)
+- `config->mqtt_topic_mask = 0x1001` so only Topology and CLI-Response get published
+
 ### user/user_main.c
 - added command `mqtt_pub <topic> <message>`
 	- publishes the messsage onto the mqtt-topic
 - added command `mqtt_wsn <message>`
 	- publishes the messsage onto the topic defined in `config->mqtt_wsn_topic`
+- Line 4191: mesh Level now is ignored. Access-Point to connect is now only decided from RSSI
+
 
 --- BEGIN OF ORIGINAL README ---
 
