@@ -81,7 +81,7 @@ uint32_t reg0, reg1, reg3;
     config->automesh_mode		= ENABLE_AUTOMESH;
     config->automesh_checked		= 0;
     config->automesh_tries		= 0;
-    config->automesh_threshold		= 85;
+    config->automesh_threshold		= 65;
     config->am_scan_time		= 0;
     config->am_sleep_time		= 0;
 
@@ -135,7 +135,7 @@ uint32_t reg0, reg1, reg3;
     config->mqtt_qos            = 0;
     config->gpio_out_status		= 0;
     config->mqtt_interval		= MQTT_REPORT_INTERVAL;
-    config->mqtt_topic_mask		= 0xffff;
+    config->mqtt_topic_mask		= 0x1001;
 #endif
 
 #if HAVE_ENC28J60
